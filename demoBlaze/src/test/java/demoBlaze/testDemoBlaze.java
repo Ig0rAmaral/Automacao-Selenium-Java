@@ -22,18 +22,18 @@ import org.openqa.selenium.Alert;
 // 3- Classe
 public class testDemoBlaze {
 	// 3.1 Atributos / Características
-	String url;   //endereço do site alvo
-	WebDriver driver;  //objeto do Selenium WebDriver
+	String url;   
+	WebDriver driver;
 	
 	//3.2 Métodos ou Funções
 	@Before
 	public void iniciar() {
 		url = "https://www.demoblaze.com/";
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\PC\\iterasys-workspace\\siteIterasys\\drivers\\chrome\\110\\chromedriver.exe" //Para localizar o chrome e selecionar
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\PC\\iterasys-workspace\\siteIterasys\\drivers\\chrome\\110\\chromedriver.exe" 
 				);
-		driver = new ChromeDriver(); // Para referenciar o chrome ao selenium
-		driver.manage().timeouts().implicitlyWait(60000, TimeUnit.MILLISECONDS); // dizer tempo de espera para pagina carregar
-		driver.manage().window().maximize(); //Para maximizar a tela do navegador
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(60000, TimeUnit.MILLISECONDS);
+		driver.manage().window().maximize();
 	}
 	
 	
@@ -44,10 +44,8 @@ public class testDemoBlaze {
 	
 	@Test
 	public void consultarCurso() {
-		driver.get(url);  // Abrir o navegador na página indicada na url
+		driver.get(url); 
 		driver.findElement(By.xpath("//a[3]")).click();
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[6]/div/div//a")));
 		driver.findElement(By.xpath("//div[6]/div/div//a")).click();
 		driver.findElement(By.xpath("//div[2]//a")).click();
 		driver.findElement(By.xpath("//li[4]/a")).click();
